@@ -1,16 +1,20 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-     <h1><%= @post.title  %></h1>
-     <p><%= @post.content %></p>       
-    </div>
+<div class="post-view">
+  <header class="post-header">
+    <h1><%= @post.title  %></h1>
+    <p><%= @post.content %></p>
+  </header>
+
+  <div class="comments">
+    <h2>Comments</h2>
+    <% @post.comments.each do |comment| %>
+      <%= comment.body  %>
+    <% end %>
   </div>
+
+
+
 </div>
 
-
-<% @post.comments.each do |comment| %>
-  <%= comment.body  %>
-<% end %>
 
 <% if signed_in? %>
   <%= form_for [@post, @post.comments.build] do |f| %>

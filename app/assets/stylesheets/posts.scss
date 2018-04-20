@@ -27,3 +27,43 @@
 }
 
 
+.post-view{
+  .post-header{
+    background:#4a544b;
+    color:#fafaf2;
+    text-align: center;
+    padding: 100px 25px;
+    margin-top:-20px;
+    margin-bottom:30px;
+
+    h1{
+      font-size:32px;
+      margin-top:0;
+    }
+
+    p {
+      font-size:18px;
+      color:#ddd;
+      margin-top:15px;
+      margin-bottom: 40px;
+    }
+
+    .btn-success{
+      font-size:18px;
+      font-weight: bold;
+    } 
+  }
+
+  .comments{
+    padding: 0 25px;
+
+    h2 {
+      color:#218838;
+      font-size:16px;
+      margin-bottom: 20px;
+    }
+  }
+
+}
+
+
