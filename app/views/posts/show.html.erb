@@ -1,9 +1,20 @@
-<h1><%= @post.title  %></h1>
-<p><%= @post.content %></p>
+<div class="post-view">
+  <header class="post-header">
+    <h1><%= @post.title  %></h1>
+    <p><%= @post.content %></p>
+  </header>
 
-<% @post.comments.each do |comment| %>
-  <%= comment.body  %>
-<% end %>
+  <div class="comments">
+    <h2>Comments</h2>
+    <% @post.comments.each do |comment| %>
+      <%= comment.body  %>
+    <% end %>
+  </div>
+
+
+
+</div>
+
 
 <% if signed_in? %>
   <%= form_for [@post, @post.comments.build] do |f| %>

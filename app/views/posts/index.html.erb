@@ -1,24 +1,21 @@
-<h1>Posts</h1>
-<% if signed_in? %>
-  <%= link_to "Create post", new_post_path %>
-<% end %>
-<table border="1px">
-  <tr>
-    <th>Title</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <% @posts.each do |post| %>
-  <tr>
-    <td><%= link_to post.title, post  %></td>
-    <td><%= post.content  %></td>
-    <% if signed_in? %>
-      <td><%= link_to "Edit post", edit_post_path(post)  %></td>
-      <td><%= link_to "Delete post", post, method: :delete, data: {confirm: "Are you sure?"}  %></td>
-    <% end %>
-    <td><%= post.comments.count %> Comments</td>  
-  </tr>
-  <% end %>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      
+      <div class="posts">
+        <% @posts.each do |post| %>
+          <div class="post clearfix">
+            <div class="post-details">
+              <span class="post-title"><%= link_to post.title, post  %></span>
+              <span class="post-content"><%= post.content  %></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
