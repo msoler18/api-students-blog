@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <% if flash[:notice] %>
+      <div class="alert alert-success"><%= flash[:notice] %></div>
+    <% end %>
     <% if signed_in? %>
       <div>Hello <%= current_user.name %><%= link_to "Logout", logout_path, method: :delete  %></div>
     <% end %>
