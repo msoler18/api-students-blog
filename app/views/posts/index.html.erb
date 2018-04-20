@@ -1,5 +1,7 @@
 <h1>Posts</h1>
-<%= link_to "Create post", new_post_path %>
+<% if signed_in? %>
+  <%= link_to "Create post", new_post_path %>
+<% end %>
 <table border="1px">
   <tr>
     <th>Title</th>
@@ -11,8 +13,10 @@
   <tr>
     <td><%= link_to post.title, post  %></td>
     <td><%= post.content  %></td>
-    <td><%= link_to "Edit post", edit_post_path(post)  %></td>
-    <td><%= link_to "Delete post", post, method: :delete, data: {confirm: "Are you sure?"}  %></td>
+    <% if signed_in? %>
+      <td><%= link_to "Edit post", edit_post_path(post)  %></td>
+      <td><%= link_to "Delete post", post, method: :delete, data: {confirm: "Are you sure?"}  %></td>
+    <% end %>  
   </tr>
   <% end %>
 </table>
