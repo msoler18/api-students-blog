@@ -1,33 +1,21 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
-      <h1>Posts</h1>
-
-      <table class="table">
-        <tr>
-          <th>Title</th>
-          <th>Content</th>
-          <th></th>
-          <th></th>
-        </tr>
+    <div class="col-sm-10 col-sm-offset-1">
+      
+      <div class="posts">
         <% @posts.each do |post| %>
-        <tr>
-          <td><%= link_to post.title, post  %></td>
-          <td><%= post.content  %></td>
-          <% if signed_in? %>
-            <td><%= link_to "Edit post", edit_post_path(post)  %></td>
-            <td><%= link_to "Delete post", post, method: :delete, data: {confirm: "Are you sure?"}  %></td>
-          <% end %>
-          <td><%= post.comments.count %> Comments</td>  
-        </tr>
+          <div class="post clearfix">
+            <div class="post-details">
+              <span class="post-title"><%= link_to post.title, post  %></span>
+              <span class="post-content"><%= post.content  %></span>
+            </div>
+          </div>
         <% end %>
-      </table>
-      <% if signed_in? %>
-        <div class="text-left">
-          <%= link_to "Create post", new_post_path, class: "btn btn-success" %>
-        </div>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
+
+
+
 
