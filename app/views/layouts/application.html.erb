@@ -36,9 +36,10 @@
                 <li><%= link_to "Login", login_path %></li>    
               <% end %>  
               <form class="navbar-form navbar-right" role="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
-                </div>
+                <%= form_tag(posts_path, :method => "get", id:"search-form") do  %>
+                  <%= text_field_tag :search, params[:search], placeholder: "Keyword", class: "form-control"  %>
+                  <%= submit_tag "Search", :name => nil, class: "btn btn-success" %>
+                <% end %>
               </form>
             </div>
             </div>

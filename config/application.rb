@@ -14,5 +14,3 @@ module SuperBlog
   end
 end
 
-config.i18n.default_locale = :es
-config.i18n.enforce_available_locales = true

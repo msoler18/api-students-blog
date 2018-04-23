@@ -6,4 +6,8 @@ class Post < ApplicationRecord
   validates :content, presence: true
   validates :content, length: {minimum: 250}
   validates_associated :user
+
+  def self.search(search)
+    where("title LIKE? OR content LIKE?","%#{search}%", "%#{search}%")
+  end  
 end
